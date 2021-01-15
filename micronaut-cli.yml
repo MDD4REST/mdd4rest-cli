@@ -1,0 +1,6 @@
+applicationType: cli
+defaultPackage: com.github.icelyframework.cli
+testFramework: spock
+sourceLanguage: java
+buildTool: gradle
+features: [annotation-api, app-name, graalvm, gradle, java, logback, picocli, picocli-java-application, picocli-spock, readme, shade, spock, yaml]
