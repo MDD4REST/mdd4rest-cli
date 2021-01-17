@@ -8,6 +8,14 @@ version = "0.1"
 group = "com.github.icelyframework.cli"
 
 repositories {
+    maven {
+        url "https://maven.pkg.github.com/icelyframework/icely-generator"
+        credentials {
+            username = project.findProperty("gpr.user") ?: System.getenv("USERNAME")
+            password = project.findProperty("gpr.key") ?: System.getenv("TOKEN")
+        }
+    }
+
     mavenCentral()
     jcenter()
 }
@@ -28,6 +36,10 @@ dependencies {
     implementation("info.picocli:picocli")
     implementation("io.micronaut.picocli:micronaut-picocli")
     implementation("javax.annotation:javax.annotation-api")
+    implementation("com.github.icelyframework.generator:icely-ontology:1.0.7")
+    implementation("com.github.icelyframework.generator:icely-mde:1.0.7")
+    implementation("commons-io:commons-io:2.8.0")
+
     runtimeOnly("ch.qos.logback:logback-classic")
     testImplementation("io.micronaut:micronaut-http-client")
 }
@@ -41,6 +53,3 @@ java {
     sourceCompatibility = JavaVersion.toVersion("11")
     targetCompatibility = JavaVersion.toVersion("11")
 }
-
-
-
